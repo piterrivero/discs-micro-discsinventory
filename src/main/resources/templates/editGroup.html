@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/layout">
+
+<head>
+	<title>Layout</title>
+</head>
+
+<body>
+  <div layout:fragment="content">
+	<div ng-app="groupModule" ng-controller="GroupController" data-ng-init="getAllGroups()">
+		<div><a href="onAddGroup">Add</a></div>
+		<div height="100px"></div>
+		<table border="1" widht="400">
+			<tr>
+				<td width="100"></td>
+				<td width="100">Name</td>
+				<td width="200">Genres</td>
+			</tr>
+			<tr ng-repeat="group in groups">
+				<td><a href="onEditGroup">Edit</a></td>
+				<td>{{group.name}}</td>
+				<td>
+					<span ng-repeat="genres in group.genres">
+						{{genres}}
+					</span>
+				</td>
+			</tr>
+		</table>
+  	</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/layout">
+
+<head>
+	<title>Layout</title>
+</head>
+
+<body>
+  <div layout:fragment="content">
+	<form name="groupForm" ng-app="groupModule" ng-controller="GroupController" data-ng-init="getAllGenres()">
+			<div style="margin-top:20px; margin-left:20px">
+				<div>
+					<label>Group name:</label>
+					<input type="text" name="name" ng-model="name" ng-pattern="/^[\w -]*$/" required>
+					<span style="color:red" ng-show="groupForm.name.$dirty && groupForm.name.$invalid">
+						<span ng-show="groupForm.name.$error.required">Group name is required.</span>
+						<span ng-show="groupForm.name.$error.pattern">Group name is invalid.</span>
+					</span>
+				</div>
+				<div style="height:20px"></div>
+				<div>
+					<label>Genres:</label>
+					<select ng-model="selectedGenres" multiple ng-options="genre.genre for genre in genres" required></select>
+					<span style="color:red" ng-show="groupForm.selectedGenres.invalid && groupForm.submitted && !isValidFormSubmitted">
+						<span ng-show="groupForm.selectedGenres.invalid && groupForm.submitted && !isValidFormSubmitted">Genre is required.</span>
+					</span>
+				</div>
+				<div style="height:20px"></div>
+				<div>
+					<input value="Save" type="submit" ng-disabled="groupForm.name.$pristine || (groupForm.name.$dirty && groupForm.name.$invalid)">
+				</div>
+			</div>
+		</form>
+  </div>
+</body>
+</html>

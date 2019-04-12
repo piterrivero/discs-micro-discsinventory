@@ -1,0 +1,8 @@
+com\discs\inventory\controller\GenreController.class
+com\discs\inventory\controller\DiscsInventoryController.class
+com\discs\inventory\proxies\DiscsServiceProxy.class
+com\discs\inventory\controller\GroupsController.class
+com\discs\inventory\proxies\GenresServiceProxy.class
+com\discs\inventory\InventoryServerApplication.class
+com\discs\inventory\model\Genre.class
+com\discs\inventory\controller\DiscsController.class
